@@ -1,0 +1,31 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <!-- Paso 1 -->
+    <mat-step [stepControl]="step1Form">
+      <ng-template matStepLabel>Paso 1</ng-template>
+      <app-step1 (formReady)="step1Form = $event"></app-step1>
+      <div>
+        <button mat-button matStepperNext [disabled]="!step1Form.valid">Siguiente</button>
+      </div>
+    </mat-step>
+  
+    <!-- Paso 2 -->
+    <mat-step [stepControl]="step2Form">
+      <ng-template matStepLabel>Paso 2</ng-template>
+      <app-step2 (formReady)="step2Form = $event"></app-step2>
+      <div>
+        <button mat-button matStepperPrevious>Anterior</button>
+        <button mat-button matStepperNext [disabled]="!step2Form.valid">Siguiente</button>
+      </div>
+    </mat-step>
+  
+    <!-- Paso 3 -->
+    <mat-step [stepControl]="step3Form">
+      <ng-template matStepLabel>Paso 3</ng-template>
+      <app-step3 (formReady)="step3Form = $event"></app-step3>
+      <div>
+        <button mat-button matStepperPrevious>Anterior</button>
+        <button mat-button (click)="submit()" [disabled]="!step3Form.valid">Finalizar</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  
