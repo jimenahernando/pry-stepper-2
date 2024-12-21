@@ -1,0 +1,8 @@
+<form [formGroup]="form">
+    <mat-selection-list formControlName="animales">
+      <mat-list-option *ngFor="let animal of animales" [value]="animal">
+        {{ animal.nombre }}
+      </mat-list-option>
+    </mat-selection-list>
+  </form>
+  
